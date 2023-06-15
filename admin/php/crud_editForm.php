@@ -12,7 +12,7 @@
 
 <body>
     <div class="boxDerecha boxRegistros">
-        <form action="crud_editar.php" method="post">
+        <form action="crud_editar.php" method="post" autocomplete="off">
             <?php
                 include("crud_busDatoE.php");
             ?>

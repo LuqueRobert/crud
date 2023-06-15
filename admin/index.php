@@ -15,7 +15,7 @@
         <div class="login">
             <h1>Inicio de Sesion</h1>
             <img src="img/bandera-femulp.webp" alt="">
-            <form action="" method="post">
+            <form action="" method="post" autocomplete="off">
                 <div class="registroLargo">
                     <p>Usuario</p>
                     <Input type="text" name="usuario"></Input>

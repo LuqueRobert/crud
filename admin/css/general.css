@@ -10,7 +10,7 @@ input:focus{
     outline: none;
 }
 
-h1, h2, h3, h4, p{
+h1, h2, h3, h4, p, table td{
     color: white;
     text-decoration: none;
     font-family: 'Oswald', sans-serif;

@@ -111,3 +111,16 @@ h4{
     justify-content: center;
     align-items: center;
 }
+.regresar{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 0 3%;
+    background-color: #FF665C;
+    border-radius: 15px 0 0 0 ;
+    text-decoration:none;
+}
+.regresar p{
+    margin: 5px 0;
+    font-size: 24px;
+}

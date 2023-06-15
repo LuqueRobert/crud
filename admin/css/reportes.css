@@ -1,22 +1,26 @@
-
+body{
+    margin: 0;
+}
 .boxPadre{
     display: flex;
+    flex-direction: column;
 }
 .boxIzquierda{
+    display: flex;
     padding: 1%;
-    width: 100%;
+    width: 95%;
 }
 
-.boxIzquierda .registroLargo p{
+.registroLargo p{
     margin: 0;
     font-size: 17px;
 }
-.boxIzquierda .registroLargo{
+.registroLargo{
     display: flex;
     text-align: end;
     margin: 1.5% 0;
 }
-.boxIzquierda .registroLargo input{
+.registroLargo input{
     margin: 0 10px;
     height: 22px;
     border-radius: 25px;
@@ -156,10 +160,10 @@
 /**Estados FIN*/
 
 /*barra izquierda busqueda*/
-.boxIzquierda .registroLargo p{
+.registroLargo p{
     font-weight: 600;
 }
-.boxIzquierda .registroLargo input{
+.registroLargo input{
     width: 30%;
     padding: 0 1%!important;
 }
@@ -197,33 +201,17 @@ width: 100%;
     border-left: 1px solid white;
     border-radius: 20px 0 0 0;
 }
-.boxIzquierda th:nth-child(2n){
-    width: 15%;
-}
-.boxIzquierda th:nth-child(3n){
-    width: 15%;
-}
-.boxIzquierda th:nth-child(4n){
-    width: 10%;
-}
-.boxIzquierda th:nth-child(5n){
-    width: 10%;
-}
-.boxIzquierda th:nth-child(6n){
-    width: 20%;
-}
-.boxIzquierda th:nth-child(7n){
-    width: 30%;
-}
 /*redondear*/
 .resultsBusqueda{
     border-radius: 20px 10px 10px 20px;
 }
 /*Scrooll Bar*/
 .resultsBusqueda{
-    height: 75vh;
+    height: 74vh;
+    width: 80%;
     overflow: hidden;
     overflow-y: scroll;
+    overflow-x: scroll;
 }
 .resultsBusqueda::-webkit-scrollbar-thumb{
     background-color: #3E7DC4;
@@ -289,18 +277,32 @@ tr.principal {
 }
 
 /*Boton de regresar*/
-
-a.regresar{
-    position: absolute;
-    right: 0;
-    bottom: 0;
+.boxButtons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8vh;
+}
+/*Boton de Reportes Generales*/
+a.regresar , a.datosGenerales{
     padding: 0 3%;
-    background-color: #FF665C;
-    border-radius: 15px 0 0 0 ;
     text-decoration:none;
 }
-a.regresar p{
+a.regresar p, a.datosGenerales p{
     margin: 5px 0;
     font-size: 24px;
 }
-
+a.regresar{
+    border-radius: 15px 0 0 0 ;
+    background-color: #FF665C;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+a.datosGenerales{
+    border-radius: 15px ;
+    background-color: orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

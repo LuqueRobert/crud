@@ -24,7 +24,7 @@
                     name="buscar">
             </div>
             <div class="resultsBusqueda">
-                <table class="tableDatos" cellspacing="0" id="filtroFm">
+                <table class="tableDatos" cellspacing="0" id="filtroFm" autocomplete="off">
                     <tr class="principal">
                         <th>ID</th>
                         <th>Nombres</th>
@@ -90,7 +90,7 @@
         </script>
 
         <div class="boxDerecha boxRegistros">
-            <form action="php/fm_registroSystem.php" method="post">
+            <form action="php/fm_registroSystem.php" method="post" autocomplete="off">
 
                 <h4>Representante Legal</h4>
                 <div class="registroLargo">
@@ -144,7 +144,7 @@
                 </div>
 
                 <div class="registroLargo estados">
-                    <p>Página Web:</p>
+                    <p>Estado:</p>
                     <label class="content-input aceptado" for="aceptado">
                         <input type="radio" name="estado" id="aceptado" value="aceptado">Aceptado
                         <i></i>

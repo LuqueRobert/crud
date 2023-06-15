@@ -1,0 +1,15 @@
+/*Grafico*/
+.grafico{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 25%;
+    text-align: left;
+    color: white;
+}
+.grafico table.datosInfo{
+    padding: 10%;
+}
+.grafico table.datosInfo tr td{
+    padding: 10px 0;
+}

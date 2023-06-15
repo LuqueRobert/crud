@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/femulp.css">
     <title>Document</title>
 </head>
 
 <body>
 
-    <h1>DECLARACION DE ADHESION</h1>
+    <h1>DECLARACION DE ADHEDHESION</h1>
     <div class="boxPadre">
         <div class="boxIzquierda boxRegistros">
             <form action="php/registros.php" method="post" autocomplete="off">
@@ -84,7 +84,11 @@
             </p>
         </div>
     </div>
-
+    <a class="regresar" href="opFemult.php">
+        <div>
+            <p>Volver</p>
+        </div>
+    </a>
 </body>
 
 </html>

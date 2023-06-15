@@ -1,11 +1,10 @@
 <?php
 
 include("fm_conexion.php");
-$buscardor = "SELECT idPerson, nombres, apellidos, cargo, celular, correo, nombreMunicipio, estado FROM registros WHERE (nombres LIKE LOWER('%".$_POST["buscar"]."%') AND estado LIKE LOWER('%".$_POST["estados"]."%'))  OR  (apellidos LIKE LOWER ('%".$_POST["buscar"]."%') AND estado LIKE LOWER('%".$_POST["estados"]."%')) OR (nombreMunicipio LIKE LOWER ('%".$_POST["buscar"]."%') AND estado LIKE LOWER('%".$_POST["estados"]."%'))";
+$buscardor = "SELECT * FROM registros WHERE (nombres LIKE LOWER('%".$_POST["buscar"]."%') AND estado LIKE LOWER('%".$_POST["estados"]."%'))  OR  (apellidos LIKE LOWER ('%".$_POST["buscar"]."%') AND estado LIKE LOWER('%".$_POST["estados"]."%')) OR (nombreMunicipio LIKE LOWER ('%".$_POST["buscar"]."%') AND estado LIKE LOWER('%".$_POST["estados"]."%'))";
 
 $cQuery = mysqli_query($enlace,$buscardor);
 ?>
-
 
 <tr class="principal">
     <th>ID</th>
@@ -15,6 +14,13 @@ $cQuery = mysqli_query($enlace,$buscardor);
     <th>Celular</th>
     <th>Correo</th>
     <th>Nombre Municipio</th>
+    <th>Direccion</th>
+    <th>Distrito</th>
+    <th>Provincia</th>
+    <th>Region</th>
+    <th>Telefono</th>
+    <th>Correo Municipal</th>
+    <th>Pagina Web</th>
 </tr>
 
 <?php while($mostrar = mysqli_fetch_assoc($cQuery)){?>
@@ -27,5 +33,40 @@ $cQuery = mysqli_query($enlace,$buscardor);
     <td><?php echo $mostrar['celular']?></td>
     <td><?php echo $mostrar['correo']?></td>
     <td><?php echo $mostrar['nombreMunicipio']?></td>
+    <td><?php echo $mostrar['direccion']?></td>
+    <td><?php echo $mostrar['distrito']?></td>
+    <td><?php echo $mostrar['provincia']?></td>
+    <td><?php echo $mostrar['region']?></td>
+    <td><?php echo $mostrar['telefono']?></td>
+    <td><?php echo $mostrar['correoMunicipal']?></td>
+    <td><?php echo $mostrar['paginaWeb']?></td>
 </tr>
 <?php }?>
+
+<script>
+function updateConfigByMutating(chart) {
+    chart.options.plugins.title.text = 'new title';
+    chart.update();
+}
+
+function updateConfigAsNewObject(chart) {
+    chart.options = {
+        responsive: true,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Chart.js'
+            }
+        },
+        scales: {
+            x: {
+                display: true
+            },
+            y: {
+                display: true
+            }
+        }
+    };
+    chart.update();
+}
+</script>
