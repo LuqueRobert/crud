@@ -21,8 +21,9 @@ $estado = $_POST['estado'];
 
 include("fm_conexion.php");
 //Codigo sql
-$sql = "UPDATE registros set nombres = '$nombre', apellidos = '$apellido', cargo = '$cargo', celular = $celular, correo = '$correo', nombreMunicipio = '$nombreMunicipio', direccion = '$direccion', distrito = '$distrito', provincia = '$provincia', region = '$region', telefono = $telefono, correoMunicipal = '$correoMunicipal', paginaWeb = '$paginaWeb', estado = '$estado' WHERE idPerson like $id";
+$sql = "UPDATE registros set nombres = '$nombre', apellidos = '$apellido', cargo = '$cargo', celular = $celular, correo = '$correo', nombreMunicipio = '$nombreMunicipio', direccion = '$direccion', distrito = '$distrito', provincia = '$provincia', region = '$region', telefono = $telefono, correoMunicipal = '$correoMunicipal', paginaWeb = '$paginaWeb', estado = '$estado' WHERE idPerson like '$id'";
 
+echo $sql;
 //mysql_query envia una sentencia a la base de datos
 
 $queryE = mysqli_query($enlace, $sql);

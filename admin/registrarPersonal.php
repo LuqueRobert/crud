@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/registrarPersonal.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/mensajeAlerta.css">
+    <script src="js/regresar.js"></script>
 </head>
 
 <body>
@@ -90,60 +92,60 @@
         </script>
 
         <div class="boxDerecha boxRegistros">
-            <form action="php/fm_registroSystem.php" method="post" autocomplete="off">
+            <form action="php/fm_registroSystem.php" method="post" autocomplete="off" id="formulario">
 
                 <h4>Representante Legal</h4>
                 <div class="registroLargo">
                     <p>Nombres:</p>
-                    <Input type="text" name="nombre"></Input>
+                    <Input type="text" name="nombre" id="nombre"></Input>
                 </div>
                 <div class="registroLargo">
                     <p>Apellidos:</p>
-                    <Input type="text" name="apellido"></Input>
+                    <Input type="text" name="apellido" id="apellido"></Input>
                 </div>
 
                 <div class="registroCorto">
                     <p>Cargo:</p>
-                    <Input type="text" name="cargo"></Input>
+                    <Input type="text" name="cargo" id="cargo"></Input>
                     <p class="segundo">Celular:</p>
-                    <Input type="number" name="cell"></Input>
+                    <Input type="number" name="cell" id="cell"></Input>
                 </div>
                 <div class="registroLargo">
                     <p>Correo:</p>
-                    <Input type="text" name="correo"></Input>
+                    <Input type="text" name="correo" id="correo"></Input>
                 </div>
 
                 <h4>Datos de Municipalidad</h4>
                 <div class="registroLargo">
                     <p>Nombre de Municipio:</p>
-                    <Input type="text" name="nombreMunicipio"></Input>
+                    <Input type="text" name="nombreMunicipio" id="nombreMunicipio"></Input>
                 </div>
                 <div class="registroLargo">
                     <p>Dirección:</p>
-                    <Input type="text" name="direccion"></Input>
+                    <Input type="text" name="direccion" id="direccion"></Input>
                 </div>
                 <div class="registroCorto">
                     <p>Distrito:</p>
-                    <Input type="text" name="distrito"></Input>
+                    <Input type="text" name="distrito" id="distrito"></Input>
                     <p class="segundo">Provincia:</p>
-                    <Input type="text" name="provincia"></Input>
+                    <Input type="text" name="provincia" id="provincia"></Input>
                 </div>
                 <div class="registroCorto">
                     <p>Región:</p>
-                    <Input type="text" name="region"></Input>
+                    <Input type="text" name="region" id="region"></Input>
                     <p class="segundo">Teléfono:</p>
-                    <Input type="number" name="telefono"></Input>
+                    <Input type="number" name="telefono" id="telefono"></Input>
                 </div>
                 <div class="registroLargo">
                     <p>Correo:</p>
-                    <Input type="text" name="correoMunicipal"></Input>
+                    <Input type="text" name="correoMunicipal" id="correoMunicipal"></Input>
                 </div>
                 <div class="registroLargo">
                     <p>Página Web:</p>
-                    <Input type="text" name="paginaWeb"></Input>
+                    <Input type="text" name="paginaWeb" id="paginaWeb"></Input>
                 </div>
 
-                <div class="registroLargo estados">
+                <div class="registroLargo estados" id="estados">
                     <p>Estado:</p>
                     <label class="content-input aceptado" for="aceptado">
                         <input type="radio" name="estado" id="aceptado" value="aceptado">Aceptado
@@ -157,16 +159,80 @@
                         <input type="radio" name="estado" id="rechazado" value="rechazado">Rechazado
                         <i></i>
                     </label>
-
                 </div>
-
+                <script>
+                document.querySelector("[name=estado][value=archivado").checked = true;
+                </script>
                 <div class="registroLargo">
-                    <input class="btnGuardar" type="submit" value="Guardar">
+                    <input class="btnGuardar" type="submit" value="Guardar" id="validarRegistro"
+                        onclick="consultaDatosRepetidos($('#nombre').val(),$('#apellido').val(),$('#correo').val())">
                 </div>
 
             </form>
         </div>
     </div>
+
+    <div class="boxAlerta" id="boxAlerta" onclick="cerrarBox()">
+        <div class="boxMensaje">
+            <svg class="cerrar" width="24" height="24" viewBox="0 0 24 24" style="fill: white;">
+                <path
+                    d="M9.172 16.242 12 13.414l2.828 2.828 1.414-1.414L13.414 12l2.828-2.828-1.414-1.414L12 10.586 9.172 7.758 7.758 9.172 10.586 12l-2.828 2.828z">
+                </path>
+                <path
+                    d="M12 22c5.514 0 10-4.486 10-10S17.514 2 12 2 2 6.486 2 12s4.486 10 10 10zm0-18c4.411 0 8 3.589 8 8s-3.589 8-8 8-8-3.589-8-8 3.589-8 8-8z">
+                </path>
+            </svg>
+
+            <p id="mensajeAlerta"></p>
+        </div>
+    </div>
+    <script type="text/javascript">
+    function consultaDatosRepetidos(nombre, apellido, correo) {
+
+        var validar = validarFormulario();
+        if (validar == true) {
+            var parametros = {
+                "nombre": nombre,
+                "apellido": apellido,
+                "correo": correo
+            };
+            $.ajax({
+                data: parametros,
+                dataType: 'json',
+                type: 'POST',
+                url: 'php/validarNombreApellidos.php',
+                success: function(data) {
+                    var json_string = JSON.stringify(data);
+                    //convertir el texto a un nuevo objeto
+                    var obj = $.parseJSON(json_string);
+
+                    if (obj.verificacion == false) {
+                        var boxActivar = document.getElementById('boxAlerta');
+                        var mensajeAlerta = document.getElementById('mensajeAlerta');
+                        boxActivar.style.visibility = "initial";
+                        mensajeAlerta.innerText =
+                            "Parece que ya hay otra persona registrada con el mismo nombre y apellido";
+                        return;
+                    }
+                    if (obj.verificacionCorreo == false) {
+                        var boxActivar = document.getElementById('boxAlerta');
+                        var mensajeAlerta = document.getElementById('mensajeAlerta');
+                        boxActivar.style.visibility = "initial";
+                        mensajeAlerta.innerText =
+                            "Parece que ya hay otra persona registrada con el mismo correo";
+                        return;
+                    }
+
+                    if (obj.verificacion == true && obj.verificacionCorreo == true) {
+                        document.getElementById("formulario").submit();
+                    }
+                }
+            });
+        }
+
+    }
+    </script>
+
     <a class="regresar" href="opFemult.php">
         <div>
             <p>Volver</p>

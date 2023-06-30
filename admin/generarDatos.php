@@ -1,5 +1,5 @@
 <?php
-    for($i = 0 ; $i <= 100; $i++){
+    for($i = 402 ; $i <= 500; $i++){
         $numberRand=rand(1,3);
 
         switch ($numberRand) {
@@ -16,7 +16,7 @@
 
         $numberAnio=rand(1,4);
 
-        switch ($numberRand) {
+        switch ($numberAnio) {
             case 1:
                 $anio = 2020;
                 break;
@@ -28,6 +28,9 @@
                 break;
             case 4:
                 $anio = 2023;
+                break;
+            case 5:
+                $anio = 2024;
                 break;
         }
 
@@ -58,7 +61,74 @@
 
         $fecha = "$anio-$numberMes-$numberDia $numberHoras:$numberMinutos:$numberSegundos";
 
-        echo "INSERT INTO `registros`(`idPerson`, `nombres`, `apellidos`, `cargo`, `celular`, `correo`, `nombreMunicipio`, `direccion`, `distrito`, `provincia`, `region`, `telefono`, `correoMunicipal`, `paginaWeb`, `estado`,`fecha`) VALUES (NULL,'nombre$i','apellido$i','Trabajador',123456789,'persona$i@gmail.com','Municipio de Lima','Jr Iquitos 100 Xxxx xxxx x x x x','Lima','Lima','Callao','123456789','municipio@gmail.com','paginita.com','$estado', '$fecha'); <br>";
+
+        //Municipio Datos :v
+        $randMuni=rand(1,6);
+
+        switch ($randMuni) {
+            case 1:
+                $nombreMuni = 'Municipalidad del Callao';
+                $direccion = 'Callao';
+                $distrito = 'Callao';
+                $provincia = 'Callao';
+                $region = 'Callao';
+                $telefono = '123123123';
+                $correoMunicipal = 'municallao@gmail.com';
+                $paginaWeb = 'municallao.com';
+                break;
+            case 2:
+                $nombreMuni = 'Municipalidad de Lima';
+                $direccion = 'Lima';
+                $distrito = 'Lima';
+                $provincia = 'Lima';
+                $region = 'Lima';
+                $telefono = '123456789';
+                $correoMunicipal = 'munilima@gmail.com';
+                $paginaWeb = 'munilima.com';
+                break;
+            case 3:
+                $nombreMuni = 'Municipalidad de San Juan de Miraflores';
+                $direccion = 'San Juan de Miraflores';
+                $distrito = 'San Juan de Miraflores';
+                $provincia = 'San Juan de Miraflores';
+                $region = 'San Juan de Miraflores';
+                $telefono = '1111111111';
+                $correoMunicipal = 'munisanjuanmiraflores@gmail.com';
+                $paginaWeb = 'munisanjuanraflores.com';
+                break;
+            case 4:
+                $nombreMuni = 'Municipalidad Bellavista';
+                $direccion = 'Bellavista';
+                $distrito = 'Bellavista';
+                $provincia = 'Bellavista';
+                $region = 'Bellavista';
+                $telefono = '222222222';
+                $correoMunicipal = 'munibellavista@gmail.com';
+                $paginaWeb = 'munibellavista.com';
+                break;
+            case 5:
+                $nombreMuni = 'Municipalidad de Breña';
+                $direccion = 'Barranco';
+                $distrito = 'Breña';
+                $provincia = 'Lima';
+                $region = 'Lima';
+                $telefono = '333333333';
+                $correoMunicipal = 'munibrenia@gmail.com';
+                $paginaWeb = 'munibrenia.com';
+                break;
+            case 6:
+                $nombreMuni = 'Municipalida de Comas';
+                $direccion = 'Comas';
+                $distrito = 'Comas';
+                $provincia = 'Lima';
+                $region = 'Lima';
+                $telefono = '44444444';
+                $correoMunicipal = 'municomas@gmail.com';
+                $paginaWeb = 'municomas.com';
+                break;
+        }
+
+        echo "INSERT INTO `registros`(`idPerson`, `nombres`, `apellidos`, `cargo`, `celular`, `correo`, `nombreMunicipio`, `direccion`, `distrito`, `provincia`, `region`, `telefono`, `correoMunicipal`, `paginaWeb`, `estado`,`fecha`) VALUES (NULL,'nombre$i','apellido$i','Trabajador',123456789,'persona$i@gmail.com','$nombreMuni','$direccion','$distrito','$provincia','$region','$telefono','$correoMunicipal','$paginaWeb','$estado', '$fecha'); <br>";
     }
 
         ?>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,16 +8,18 @@
     <title>Envio Exitoso</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <div class="boxCenter">
         <h1>El registro se envio de manera exitosa</h1>
         <h2>Gracias por Registrarte</h2>
     </div>
     <script>
-        //Esto es para que estea por un par de segundos y despues regresa a la parte de registros
-            setInterval(function(){
-                window.location = "../index.php";
-            },4000);
+    //Esto es para que estea por un par de segundos y despues regresa a la parte de registros
+    setInterval(function() {
+        window.location = "../index.php";
+    }, 1000);
     </script>
 </body>
+
 </html>

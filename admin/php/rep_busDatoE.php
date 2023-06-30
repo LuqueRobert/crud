@@ -13,7 +13,7 @@ $cQuery = mysqli_query($enlace,$buscardor);
     <th>Cargo</th>
     <th>Celular</th>
     <th>Correo</th>
-    <th>Nombre Municipio</th>
+    <th>Nombre_Municipio</th>
     <th>Direccion</th>
     <th>Distrito</th>
     <th>Provincia</th>
@@ -21,6 +21,7 @@ $cQuery = mysqli_query($enlace,$buscardor);
     <th>Telefono</th>
     <th>Correo Municipal</th>
     <th>Pagina Web</th>
+    <th>Fecha_de_Registro_</th>
 </tr>
 
 <?php while($mostrar = mysqli_fetch_assoc($cQuery)){?>
@@ -40,33 +41,6 @@ $cQuery = mysqli_query($enlace,$buscardor);
     <td><?php echo $mostrar['telefono']?></td>
     <td><?php echo $mostrar['correoMunicipal']?></td>
     <td><?php echo $mostrar['paginaWeb']?></td>
+    <td><?php echo $mostrar['fecha']?></td>
 </tr>
 <?php }?>
-
-<script>
-function updateConfigByMutating(chart) {
-    chart.options.plugins.title.text = 'new title';
-    chart.update();
-}
-
-function updateConfigAsNewObject(chart) {
-    chart.options = {
-        responsive: true,
-        plugins: {
-            title: {
-                display: true,
-                text: 'Chart.js'
-            }
-        },
-        scales: {
-            x: {
-                display: true
-            },
-            y: {
-                display: true
-            }
-        }
-    };
-    chart.update();
-}
-</script>

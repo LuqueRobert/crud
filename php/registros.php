@@ -16,11 +16,9 @@ $correoMunicipal = $_POST['correoMunicipal'];
 $paginaWeb = $_POST['paginaWeb'];
 $estado = "archivado";
 
-
-//$enlace = mysqli_connect("127.0.0.1", "mi_usuario", "mi_contraseña", "mi_bd");
-$enlace = mysqli_connect("localhost", "root", "1234", "femulp");
+include("fm_conexion.php");
 //Codigo sql
-$sql = "INSERT INTO registros (idPerson, nombres, apellidos, cargo, celular, correo, nombreMunicipio, direccion, distrito, provincia, region, telefono, correoMunicipal, paginaWeb, estado) VALUES ( NULL,'$nombre', '$apellido', '$cargo', $celular, '$correo', '$nombreMunicipio', '$direccion', '$distrito', '$provincia', '$region', $telefono, '$correoMunicipal', '$paginaWeb', '$estado')";
+$sql = "INSERT INTO registros (idPerson, nombres, apellidos, cargo, celular, correo, nombreMunicipio, direccion, distrito, provincia, region, telefono, correoMunicipal, paginaWeb, estado, fecha) VALUES ( NULL,'$nombre', '$apellido', '$cargo', $celular, '$correo', '$nombreMunicipio', '$direccion', '$distrito', '$provincia', '$region', $telefono, '$correoMunicipal', '$paginaWeb', '$estado', NOW())";
 
 //mysql_query envia una sentencia a la base de datos
 
@@ -40,7 +38,7 @@ $header .= "X-Mailer: PHP/" . phpversion();
 $asunto = "Nuevo Registro de datos Personal";
 $mensaje = "Datos Registrados \n Representante Legal \n nombre: $nombre \n apellido: $apellido \n cargo: $cargo \n celular: $celular \n correo: $correo \n";
 
-$mensaje .= "Datos de Municipalidad \n Nombre de Municipio: $nombreMunicipio \n Dirección: $direccion \n Distrito: $distrito \n Provincia: $provincia \n Región: $region \n Teléfono: $telefono \n Correo: $correoMunicipal \n Página Web: $paginaWeb";
+$mensaje .= "Datos de Municipalidad \n Nombre de Municipio: $nombreMunicipio \n Dirección: $direccion \n Distrito: $distrito \n Provincia: $provincia \n Región: $region \n Teléfono: $telefono \n Correo: $correoMunicipal \n Página Web: $paginaWeb \n Estado: $estado \n Fecha: $fecha";
 
 //*Funcion mail = (a Quien se le va a enviar, asunto, mensaje, header)
 $mail = mail($correo, $asunto, $mensaje, $header);
