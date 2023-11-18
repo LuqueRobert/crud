@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
 
-
+    <link rel="stylesheet" href="css/styleadhesion.css">
     <link rel="stylesheet" href="css/mensajeAlerta.css">
     <script src="js/regresar.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -108,7 +107,7 @@
     </div>
     <script type="text/javascript">
     function consultaDatosRepetidos(nombre, apellido, correo) {
-
+        alert('buenas tardes');
         var validar = validarFormulario();
         if (validar == true) {
             var parametros = {

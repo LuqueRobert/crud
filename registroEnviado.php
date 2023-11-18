@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -17,7 +17,7 @@
     <script>
     //Esto es para que estea por un par de segundos y despues regresa a la parte de registros
     setInterval(function() {
-        window.location = "../index.php";
+        window.location = "../adhesion.php";
     }, 1000);
     </script>
 </body>

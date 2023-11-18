@@ -1,19 +1,20 @@
 <?php
 //Datos de la persona
-$nombre = $_POST['nombre'];
-$apellido = $_POST['apellido'];
-$cargo = $_POST['cargo'];
-$celular = $_POST['cell'];
-$correo = $_POST['correo'];
+
+$nombre = utf8_encode($_POST['nombre']);
+$apellido = utf8_encode($_POST['apellido']);
+$cargo = utf8_encode($_POST['cargo']);
+$celular = utf8_encode($_POST['cell']);
+$correo = utf8_encode($_POST['correo']);
 //Datos de la municipalidad
-$nombreMunicipio = $_POST['nombreMunicipio'];
-$direccion = $_POST['direccion'];
-$distrito = $_POST['distrito'];
-$provincia = $_POST['provincia'];
-$region = $_POST['region'];
-$telefono = $_POST['telefono'];
-$correoMunicipal = $_POST['correoMunicipal'];
-$paginaWeb = $_POST['paginaWeb'];
+$nombreMunicipio = utf8_encode($_POST['nombreMunicipio']);
+$direccion = utf8_encode($_POST['direccion']);
+$distrito = utf8_encode($_POST['distrito']);
+$provincia = utf8_encode($_POST['provincia']);
+$region = utf8_encode($_POST['region']);
+$telefono = utf8_encode($_POST['telefono']);
+$correoMunicipal = utf8_encode($_POST['correoMunicipal']);
+$paginaWeb = utf8_encode($_POST['paginaWeb']);
 $estado = "archivado";
 
 include("fm_conexion.php");
